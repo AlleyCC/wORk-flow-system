@@ -1,1 +1,48 @@
-<h1>hello world</h1>
+<h1>今日排程</h1>
+<select class="form-select m-3" aria-label="Default select example" style="width: 150px;">
+  <option selected>依科別顯示</option>
+  <option value="1">婦產科</option>
+  <option value="2">一般外科</option>
+  <option value="3">泌尿外科</option>
+  <option value="3">神經外科</option>
+  <option value="3">耳鼻喉科</option>
+  <option value="3">大腸直腸外科</option>
+  <option value="3">骨科</option>
+  <option value="3">眼科</option>
+  <option value="3">胸腔外科</option>
+  <option value="3">心臟血管外科</option>
+  <option value="3">口腔外科</option>
+</select>
+
+<div>
+  {{>homepage-tabs}}
+  <div class="m-2">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">病歷號</th>
+          <th scope="col">床號</th>
+          <th scope="col">姓名</th>
+          <th scope="col">診斷</th>
+          <th scope="col">術式</th>
+          <th scope="col">主刀醫師</th>
+          <th scope="col">預計手術時間</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{!-- content --}}
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+        </tr>
+        {{!-- content --}}
+      </tbody>
+    </table>
+  </div>
+  
+</div>
