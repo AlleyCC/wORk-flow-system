@@ -5,10 +5,10 @@ const doctorSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   }],
-  department: {
-    type: String,
-    required: true
-  },
+  departmentId: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Department'
+  }],
   createdAt: {
     type: Date,
     default: Date.now

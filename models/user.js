@@ -13,6 +13,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  identityCode: { // 身分: doctor / nurse
+    type: Number,
+    required: true
+  },
   createdAt: {
     type: Date,
     default: Date.now

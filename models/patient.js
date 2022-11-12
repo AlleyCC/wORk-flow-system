@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const patientSchema = new Schema({
-  patientId: {
+  patientNumber: {  // 病歷號
     type: String,
     required: true
   },
@@ -9,20 +9,17 @@ const patientSchema = new Schema({
     type: String,
     required: true
   },
-  room: {
-    type: Number,
-  },
-  status: {
-    type: Number,
-    required: true
-  },
+  roomId: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Room'
+  }],
   ward: {
     type: String
   },
-  doctor: {
-    type: String,
-    required: true
-  },
+  doctorId: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Doctor'
+  }],
   diagnose: {
     type: String,
     required: true
