@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const patientSchema = new Schema({
-  patientNumber: {  // 病歷號
+  patientNumber: { // 病歷號
     type: String,
     required: true
   },
