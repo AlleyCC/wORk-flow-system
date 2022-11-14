@@ -1,0 +1,15 @@
+{
+  "users":[
+    {
+      "account": "A123",
+      "name": "金火木",
+      "password": "12345678",
+      "identityCode": 1
+    }, {
+      "account": "B456",
+      "name": "水火土",
+      "password": "12345678",
+      "identityCode": 2
+    }
+  ]
+}
