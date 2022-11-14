@@ -1,7 +1,7 @@
 const { faker } = require('@faker-js/faker')
 const randomName = require('chinese-random-name')
 const { generatePatientNums, generateWard } = require('../../helpers/seedDataHelpers')
-// faker.lorem.words()
+
 require('dotenv').config()
 
 const db = require('../../config/mongoose')
@@ -10,7 +10,7 @@ const Room = require('../rooms')
 const Doctor = require('../doctors')
 // 60筆病人假資料
 db.once('open', () => {
-  // 找出隨機分配room.id和doctor.id
+  // 隨機分配room.id和doctor.id
   console.log('MONGODB connected.')
   Promise.all([
     Room.find(),
