@@ -11,6 +11,7 @@ const SEED_PASSWORD = "13579"
 
 db.once('open', () => {
   console.log('MongoDB connected.')
+  // 假資料
   const fakeData = Array.from({ length: 20 }, (_, i) => {
       return User.create({
         account: generateAccount(),
@@ -19,6 +20,7 @@ db.once('open', () => {
         identityCode: i % 2 + 1
         })
       })
+  // 種子資料
   const seedData = SEED_USER.users.map(user => {
     return User.create({
       account: user.account,

@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
-    "seed": "node models/seeds/departmentSeeder.js && node models/seeds/roomSeeder.js && node models/seeds/userSeeder.js",
+    "seed": "node models/seeds/departmentSeeder.js && node models/seeds/roomSeeder.js && node models/seeds/userSeeder.js && node models/seeds/doctorSeeder.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
