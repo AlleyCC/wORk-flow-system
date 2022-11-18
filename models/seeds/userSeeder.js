@@ -1,6 +1,8 @@
 const randomName = require('chinese-random-name')
 const bcrypt = require('bcrypt')
-require('dotenv').config()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const db = require('../../config/mongoose')
 const User = require('../users')
@@ -35,4 +37,5 @@ db.once('open', () => {
       console.log('User data constructed.')
       process.exit()
     })
+    .catch(err => console.log('err'))
 })

@@ -27,23 +27,46 @@
           <th class="col-1">姓名</th>
           <th class="col-2">主刀醫師</th>
           <th class="col-2">診斷</th>
-          <th class="col-3">術式</th>
-          
-          
+          <th class="col-3">術式</th>  
         </tr>
       </thead>
       <tbody>
+        
         {{!-- content --}}
+        {{#each patientData}}
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td>c-section</td>
+          {{#if this.room}}
+          <td>{{ this.room }}</td>
+          {{else}}
+          <td></td>
+          {{/if}}
+          
+          {{#if this.statusCode}}
+          
+          {{#ifCond this.statusCode 1}}
+          <td>已報到</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 2}}
+          <td>手術準備中</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 3}}
+          <td>手術中</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 4}}
+          <td>已完成</td>
+          {{/ifCond}}
+          
+          {{else}}
+          <td></td>
+          {{/if}}
+          <td>{{ this.patientNumber }}</td>
+          <td>{{ this.ward }}</td>
+          <td>{{ this.name }}</td>
+          <td>{{ this.doctor }}</td>
+          <td>{{ this.diagnose }}</td>
+          <td>{{ this.surgery }}</td>
         </tr>
+        {{/each}}
         {{!-- content --}}
       </tbody>
     </table>

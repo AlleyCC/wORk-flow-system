@@ -1,4 +1,6 @@
-require('dotenv').config()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const db = require('../../config/mongoose')
 const Doctor = require('../doctors')
@@ -23,4 +25,5 @@ db.once('open', () => {
       console.log('Doctor seed data constructed.')
       process.exit()
     })
+    .catch(err => console.log('err'))
 })

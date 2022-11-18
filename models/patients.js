@@ -9,17 +9,17 @@ const patientSchema = new Schema({
     type: String,
     required: true
   },
-  roomId: [{
+  roomId: {
     type: Schema.Types.ObjectId,
     ref: 'Room'
-  }],
+  },
   ward: {
     type: String
   },
-  doctorId: [{
+  doctorId: {
     type: Schema.Types.ObjectId,
     ref: 'Doctor'
-  }],
+  },
   diagnose: {
     type: String,
     required: true

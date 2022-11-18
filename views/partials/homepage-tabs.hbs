@@ -1,21 +1,19 @@
 <ul class="nav nav-tabs mb-4">
+  
   <li class="nav-item">
-    <a class="nav-link" href="#">所有手術</a>
+    <a class="nav-link {{#ifCond route 'index'}}active{{/ifCond}}" href="/patients">所有手術</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">未報到</a>
+    <a class="nav-link {{#ifCond route 'registered'}}active{{/ifCond}}" href="/patients/registered">已報到</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">已報到</a>
+    <a class="nav-link {{#ifCond route 'pre-op'}}active{{/ifCond}}" href="/patients/pre-op">手術準備中</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">已取消</a>
+    <a class="nav-link {{#ifCond route 'op'}}active{{/ifCond}}" href="/patients/op">手術中</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">手術中</a>
+    <a class="nav-link {{#ifCond route 'post-op'}}active{{/ifCond}}" href="/patients/post-op">已完成</a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">手術完成</a>
-  </li>
-
+ 
 </ul>

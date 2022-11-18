@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const userSchema = new Schema({
-  account: {       // 員工編號
+  account: { // 員工編號
     type: String,
     required: true
   },

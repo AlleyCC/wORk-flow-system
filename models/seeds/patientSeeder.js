@@ -2,7 +2,9 @@ const { faker } = require('@faker-js/faker')
 const randomName = require('chinese-random-name')
 const { generatePatientNums, generateWard } = require('../../helpers/seedDataHelpers')
 
-require('dotenv').config()
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
 const db = require('../../config/mongoose')
 const Patient = require('../patients')
@@ -35,4 +37,5 @@ db.once('open', () => {
       console.log('patient data constructed.')
       process.exit()
     })
+    .catch(err => console.log('err'))
 })
