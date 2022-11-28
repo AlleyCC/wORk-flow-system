@@ -6,9 +6,9 @@ const patientsController = {
       err ? next(err) : res.render('index', data)
     })
   },
-  getRegistered: (req, res, next) => {
-    patientsServices.getRegistered(req, (err, data) => {
-      err ? next(err) : res.render('registered', data)
+  getStatus: (req, res, next) => {
+    patientsServices.getStatus(req, (err, data) => {
+      err ? next(err) : res.render('index', data)
     })
   },
   getPreOp: (req, res, next) => {
