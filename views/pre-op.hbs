@@ -1,5 +1,21 @@
-{{> homepage-tabs route="pre-op"}}
+
+<h1 class="m-2">今日排程</h1>
+<select class="form-select m-3" aria-label="Default select example" style="width: 150px;">
+  <option selected>依科別顯示</option>
+  <option value="1">婦產科</option>
+  <option value="2">一般外科</option>
+  <option value="3">泌尿外科</option>
+  <option value="3">神經外科</option>
+  <option value="3">耳鼻喉科</option>
+  <option value="3">大腸直腸外科</option>
+  <option value="3">骨科</option>
+  <option value="3">眼科</option>
+  <option value="3">胸腔外科</option>
+  <option value="3">心臟血管外科</option>
+  <option value="3">口腔外科</option>
+</select>
 <div class="container">
+  {{> homepage-tabs route="pre-op"}}
   <div class="m-2">
     <table class="table table-striped">
       <thead>
@@ -19,30 +35,8 @@
         {{!-- content --}}
         {{#each patientData}}
         <tr>
-          {{#if this.room}}
           <td>{{ this.room }}</td>
-          {{else}}
-          <td></td>
-          {{/if}}
-
-          {{#if this.statusCode}}
-
-          {{#ifCond this.statusCode 1}}
-          <td>已報到</td>
-          {{/ifCond}}
-          {{#ifCond this.statusCode 2}}
           <td>手術準備中</td>
-          {{/ifCond}}
-          {{#ifCond this.statusCode 3}}
-          <td>手術中</td>
-          {{/ifCond}}
-          {{#ifCond this.statusCode 4}}
-          <td>已完成</td>
-          {{/ifCond}}
-
-          {{else}}
-          <td></td>
-          {{/if}}
           <td>{{ this.patientNumber }}</td>
           <td>{{ this.ward }}</td>
           <td>{{ this.name }}</td>
@@ -55,4 +49,5 @@
       </tbody>
     </table>
   </div>
+
 </div>
