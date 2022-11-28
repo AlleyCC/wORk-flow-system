@@ -15,6 +15,11 @@ const patientsController = {
     patientsServices.getPreOp(req, (err, data) => {
       err ? next(err) : res.render('pre-op', data)
     })
+  },
+  getOp: (req, res, next) => {
+    patientsServices.getPreOp(req, (err, data) => {
+      err ? next(err) : res.render('op', data)
+    })
   }
 }
 module.exports = patientsController
