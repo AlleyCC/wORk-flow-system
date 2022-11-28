@@ -1,0 +1,58 @@
+{{> homepage-tabs route="pre-op"}}
+<div class="container">
+  <div class="m-2">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-1">手術房間</th>
+          <th class="col-1">手術狀態</th>
+          <th class="col-1">病歷號</th>
+          <th class="col-1">床號</th>
+          <th class="col-1">姓名</th>
+          <th class="col-2">主刀醫師</th>
+          <th class="col-2">診斷</th>
+          <th class="col-3">術式</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {{!-- content --}}
+        {{#each patientData}}
+        <tr>
+          {{#if this.room}}
+          <td>{{ this.room }}</td>
+          {{else}}
+          <td></td>
+          {{/if}}
+
+          {{#if this.statusCode}}
+
+          {{#ifCond this.statusCode 1}}
+          <td>已報到</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 2}}
+          <td>手術準備中</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 3}}
+          <td>手術中</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 4}}
+          <td>已完成</td>
+          {{/ifCond}}
+
+          {{else}}
+          <td></td>
+          {{/if}}
+          <td>{{ this.patientNumber }}</td>
+          <td>{{ this.ward }}</td>
+          <td>{{ this.name }}</td>
+          <td>{{ this.doctor }}</td>
+          <td>{{ this.diagnose }}</td>
+          <td>{{ this.surgery }}</td>
+        </tr>
+        {{/each}}
+        {{!-- content --}}
+      </tbody>
+    </table>
+  </div>
+</div>

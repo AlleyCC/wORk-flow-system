@@ -5,6 +5,11 @@ const patientsController = {
     patientsServices.getPatients(req, (err, data) => {
       err ? next(err) : res.render('index', data)
     })
+  },
+  getRegistered: (req, res, next) => {
+    patientsServices.getRegistered(req, (err, data) => {
+      err ? next(err) : res.render('registered', data)
+    })
   }
 }
 module.exports = patientsController

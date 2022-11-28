@@ -10,6 +10,7 @@ const Department = require('../departments')
 db.once('open', () => {
   // 找出identityCode === 1的user._id
   // 隨機分配department._id
+  const countOfDepartment = 11
   Promise.all([User.find({ identityCode: 1 }), Department.find()])
     .then(([users, departments]) => {
       const userId = users.map(user => user._id)
@@ -17,7 +18,7 @@ db.once('open', () => {
       return Promise.all(Array.from({ length: userId.length }, (_, i) => {
         return Doctor.create({
           userId: userId[i],
-          departmentId: departmentId[i]
+          departmentId: departmentId[i % countOfDepartment]
         })
       }))
     })

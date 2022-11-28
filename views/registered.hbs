@@ -1,38 +1,74 @@
-<div class="container mt-4"> 
-  {{!-- 病歷號:按下enter後會查詢是否registered, 已登錄/未登錄--}}
-  {{!-- 顯示病人資料 --}}
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">@</span>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-  </div>
-  
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-      aria-describedby="basic-addon2">
-    <span class="input-group-text" id="basic-addon2">@example.com</span>
-  </div>
-  
-  <label for="basic-url" class="form-label">Your vanity URL</label>
-  <div class="input-group mb-3">
-    <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-  </div>
-  
-  <div class="input-group mb-3">
-    <span class="input-group-text">$</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-    <span class="input-group-text">.00</span>
-  </div>
-  
-  <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
-    <span class="input-group-text">@</span>
-    <input type="text" class="form-control" placeholder="Server" aria-label="Server">
-  </div>
-  
-  <div class="input-group">
-    <span class="input-group-text">With textarea</span>
-    <textarea class="form-control" aria-label="With textarea"></textarea>
+<h1 class="m-2">今日排程</h1>
+<select class="form-select m-3" aria-label="Default select example" style="width: 150px;">
+  <option selected>依科別顯示</option>
+  <option value="1">婦產科</option>
+  <option value="2">一般外科</option>
+  <option value="3">泌尿外科</option>
+  <option value="3">神經外科</option>
+  <option value="3">耳鼻喉科</option>
+  <option value="3">大腸直腸外科</option>
+  <option value="3">骨科</option>
+  <option value="3">眼科</option>
+  <option value="3">胸腔外科</option>
+  <option value="3">心臟血管外科</option>
+  <option value="3">口腔外科</option>
+</select>
+<div class="container">
+{{> homepage-tabs route="registered"}}
+  <div class="m-2">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="col-1">手術房間</th>
+          <th class="col-1">手術狀態</th>
+          <th class="col-1">病歷號</th>
+          <th class="col-1">床號</th>
+          <th class="col-1">姓名</th>
+          <th class="col-2">主刀醫師</th>
+          <th class="col-2">診斷</th>
+          <th class="col-3">術式</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {{!-- content --}}
+        {{#each patientData}}
+        <tr>
+          {{#if this.room}}
+          <td>{{ this.room }}</td>
+          {{else}}
+          <td></td>
+          {{/if}}
+
+          {{#if this.statusCode}}
+
+          {{#ifCond this.statusCode 1}}
+          <td>已報到</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 2}}
+          <td>手術準備中</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 3}}
+          <td>手術中</td>
+          {{/ifCond}}
+          {{#ifCond this.statusCode 4}}
+          <td>已完成</td>
+          {{/ifCond}}
+
+          {{else}}
+          <td></td>
+          {{/if}}
+          <td>{{ this.patientNumber }}</td>
+          <td>{{ this.ward }}</td>
+          <td>{{ this.name }}</td>
+          <td>{{ this.doctor }}</td>
+          <td>{{ this.diagnose }}</td>
+          <td>{{ this.surgery }}</td>
+        </tr>
+        {{/each}}
+        {{!-- content --}}
+      </tbody>
+    </table>
   </div>
 
 </div>
