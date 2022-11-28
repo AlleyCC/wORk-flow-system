@@ -17,8 +17,13 @@ const patientsController = {
     })
   },
   getOp: (req, res, next) => {
-    patientsServices.getPreOp(req, (err, data) => {
+    patientsServices.getOp(req, (err, data) => {
       err ? next(err) : res.render('op', data)
+    })
+  },
+  getPostOp: (req, res, next) => {
+    patientsServices.getPostOp(req, (err, data) => {
+      err ? next(err) : res.render('post-op', data)
     })
   }
 }
